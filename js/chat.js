@@ -34,7 +34,7 @@ function submitfunction(){
   if(to == ''){
 	swal({
 		title: "No Recipient!",
-		text: "Please select a Recipient..!",
+		text: "Please select a Recipient..! \r\n Click the user name in Online Users List.!!",
 		showCancelButton: false,
 		closeOnConfirm: true,
 		animation: "slide-from-top",
@@ -45,6 +45,7 @@ function submitfunction(){
     ); 
   }
   if(message != '' && to != '') {
+	$('#messages').append('<li><b style="color:green; text-transform: capitalize;">Me</b>: ' + message + '</li>');
 	socket.emit('chatMessage', from, to, message);
 	$('#m').val('').focus();
   }
@@ -54,7 +55,9 @@ function submitfunction(){
  
 function notifyTyping() { 
   var user = $('#user').val();
-  socket.emit('notifyUser', user);
+  var to = $('#recipient').val();
+  if(to)
+	socket.emit('notifyUser', to, user);
 }
  
 function myFunction(){

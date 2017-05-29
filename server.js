@@ -18,7 +18,7 @@ io.on('connection', function(socket){
 		
 	// List all socket ids'
 	for (var socketId in io.nsps[namespace].adapter.rooms) {
-		console.log("-----"+socketId);
+		console.log("---"+socketId);
 	}
 	
 	socket.on('newUser', function(name, id){
@@ -36,6 +36,7 @@ io.on('connection', function(socket){
 		});
         console.log('User disconnected'+'\n');
 		console.log(clientlist);
+		io.emit('onlineUsers', clientlist);
     });
 	
 	socket.on('chatMessage', function(from, to, msg){
@@ -43,9 +44,9 @@ io.on('connection', function(socket){
 		io.to(to).emit('chatMessage', from, msg);
 		//io.emit('chatMessage', from, msg);
 	});
-	socket.on('notifyUser', function(user){
+	socket.on('notifyUser', function(to, user){
 		//console.log('notifyUser', user);
-		io.emit('notifyUser', user);
+		io.to(to).emit('notifyUser', user);
 	});
 });
 
