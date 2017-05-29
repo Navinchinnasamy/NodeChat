@@ -1,0 +1,38 @@
+<!doctype html>
+  <html>
+   <head>
+    <title>Chat Application</title>
+	<link rel="icon" href="fav1.png" type="image/png" sizes="32x32">
+	<link rel="stylesheet" href="css/sweetalert.css" ></link>
+    <link rel='stylesheet' href='css/bootstrap/bootstrap.min.css' type='text/css'/>
+    <link rel='stylesheet' href='css/style.css' type='text/css'/>
+    <script src="js/jquery/jquery-3.1.1.min.js"></script>
+    <script src="js/bootstrap/bootstrap.min.js"></script>
+    <script src="js/pouchdb/pouchdb.min.js"></script>
+    <script src="js/socket/socket.io-1.4.5.js"></script>
+    <script src="js/sweetalert.min.js"></script>
+    <script src="js/easyNotify.js"></script>
+    <script src="js/chat.js"></script>
+  </head>
+  <body> 
+	<div class="container-fluid">
+		<div class="content">
+			<div class="row vdivide">
+				<div class="col-md-2 users-list">
+					<h4>Online Users</h4>
+				</div>
+				<div class="col-md-10">
+					<ul id="messages" style="margin-bottom: 50px;"></ul>
+					<span id="notifyUser"></span>
+					<form id="form" action="" onsubmit="return submitfunction();" > 
+					  <input type="hidden" id="user" value="" />
+					  <input type="hidden" id="recipient" value="" />
+					  <input id="m" autocomplete="off" onkeyup="notifyTyping();" placeholder="Type yor message here.." />
+					  <input type="submit" id="button" value="Send"/> 
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+  </body>
+</html>

@@ -1,0 +1,22 @@
+{
+  "name": "chat",
+  "version": "1.0.0",
+  "description": "It is a simple chat application to have fun with friends",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "chat"
+  ],
+  "author": "Navin",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.14.0",
+    "node-session": "^1.2.1",
+    "path": "^0.12.7",
+    "pouchdb-browser": "^6.1.1",
+    "socket.io": "^1.7.2",
+    "sweetalert": "^1.1.3"
+  }
+}
